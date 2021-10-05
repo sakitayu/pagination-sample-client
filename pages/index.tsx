@@ -17,7 +17,7 @@ const Home: NextPage = () => {
 
     const trs = users.map(user => {
         return (
-            <tr>
+            <tr key={user.idigt}>
                 <td>{user.id}</td>
                 <td>{user.name}</td>
             </tr>
