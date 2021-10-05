@@ -1,42 +1,12 @@
 import type { NextPage } from 'next';
-import React, { useEffect, useState, FC } from 'react';
-import { User } from '@/Domain/Entity/User';
-import { UserRepository } from '@/Domain/Repository/UserRepository';
-import { Container, Table } from 'react-bootstrap';
+import Router from 'next/router';
+import { useEffect } from 'react';
 
 const Home: NextPage = () => {
-    const [users, setUsers] = useState<User[]>([]);
-    const [totalPages, setTotalPages] = useState<number>();
-
     useEffect(() => {
-        UserRepository.index().then(res => {
-            setUsers(res.data);
-            setTotalPages(res.totalPages);
-        });
+        Router.push('/users');
     }, []);
-
-    const trs = users.map(user => {
-        return (
-            <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.name}</td>
-            </tr>
-        );
-    });
-
-    return (
-        <Container className='mx-auto my-5'>
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                    </tr>
-                </thead>
-                <tbody>{trs}</tbody>
-            </Table>
-        </Container>
-    );
+    return null;
 };
 
 export default Home;
