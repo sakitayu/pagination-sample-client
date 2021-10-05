@@ -1,4 +1,3 @@
-import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import '../node_modules/bootstrap/scss/bootstrap.scss';
 

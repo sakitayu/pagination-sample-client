@@ -81,14 +81,14 @@ export const PaginationParts: React.FC<Props> = props => {
                     props.currentPage !== 1 &&
                     Router.push(props.targetPagePath + 1)
                 }
-                className='mx-1 page-angle'
+                className='mx-1'
             />
             <Pagination.Prev
                 onClick={() =>
                     props.currentPage !== 1 &&
                     Router.push(props.targetPagePath + (props.currentPage - 1))
                 }
-                className='mx-1 page-angle'
+                className='mx-1'
             />
             {paginationItems}
             <Pagination.Next
@@ -96,14 +96,14 @@ export const PaginationParts: React.FC<Props> = props => {
                     props.currentPage !== props.totalPages &&
                     Router.push(props.targetPagePath + (props.currentPage + 1))
                 }
-                className='mx-1 page-angle'
+                className='mx-1'
             />
             <Pagination.Last
                 onClick={() =>
                     props.currentPage !== props.totalPages &&
                     Router.push(props.targetPagePath + props.totalPages)
                 }
-                className='mx-1 page-angle'
+                className='mx-1'
             />
         </Pagination>
     );
