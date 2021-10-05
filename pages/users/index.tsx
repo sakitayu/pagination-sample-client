@@ -14,7 +14,7 @@ const UsersIndex: NextPage<Props> = ({ currentPage }) => {
     const [totalPages, setTotalPages] = useState<number>();
 
     useEffect(() => {
-        UserRepository.index().then(res => {
+        UserRepository.index(currentPage).then(res => {
             setUsers(res.data);
             setTotalPages(res.totalPages);
         });
