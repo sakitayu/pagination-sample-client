@@ -7,7 +7,7 @@ interface Props {
     targetPagePath: string;
 }
 
-const totalPageIndications = 10;
+const totalPageIndications = 5;
 const middlePagePosition = Math.floor(totalPageIndications / 2) + 1;
 
 export const PaginationParts: React.FC<Props> = props => {
