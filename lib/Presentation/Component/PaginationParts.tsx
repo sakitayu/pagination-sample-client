@@ -8,7 +8,7 @@ interface Props {
 }
 
 // ページネーションの数字ボタンの数
-const totalPageIndications = 5;
+const totalPageIndications = 10;
 // ページネーションの数字ボタンの真ん中の位置 (5の場合は3, 10の場合は6)
 const middlePagePosition = Math.floor(totalPageIndications / 2) + 1;
 
@@ -37,27 +37,8 @@ export const PaginationParts: React.FC<Props> = props => {
                 </Pagination.Item>
             );
         } else if (
-            props.totalPages > totalPageIndications &&
-            props.currentPage >= middlePagePosition &&
-            props.currentPage + middlePagePosition <= props.totalPages
-        ) {
-            return (
-                <Pagination.Item
-                    key={pageNumberAroundMiddlePage}
-                    onClick={() =>
-                        Router.push(
-                            props.targetPagePath + pageNumberAroundMiddlePage,
-                        )
-                    }
-                    active={pageNumberAroundMiddlePage === props.currentPage}
-                    className='mx-1'
-                >
-                    {pageNumberAroundMiddlePage}
-                </Pagination.Item>
-            );
-        } else if (
-            props.totalPages > totalPageIndications &&
-            props.currentPage + middlePagePosition > props.totalPages
+            props.currentPage + middlePagePosition - 1 >
+            props.totalPages
         ) {
             return (
                 <Pagination.Item
@@ -71,6 +52,21 @@ export const PaginationParts: React.FC<Props> = props => {
                     className='mx-1'
                 >
                     {pageNumberUpToLastPage}
+                </Pagination.Item>
+            );
+        } else {
+            return (
+                <Pagination.Item
+                    key={pageNumberAroundMiddlePage}
+                    onClick={() =>
+                        Router.push(
+                            props.targetPagePath + pageNumberAroundMiddlePage,
+                        )
+                    }
+                    active={pageNumberAroundMiddlePage === props.currentPage}
+                    className='mx-1'
+                >
+                    {pageNumberAroundMiddlePage}
                 </Pagination.Item>
             );
         }
