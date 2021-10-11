@@ -8,7 +8,7 @@ interface Props {
 }
 
 // ページネーションの数字ボタンの数
-const totalPageIndications = 10;
+const totalPageIndications = 5;
 // ページネーションの数字ボタンの真ん中の位置 (5の場合は3, 10の場合は6)
 const middlePagePosition = Math.floor(totalPageIndications / 2) + 1;
 
