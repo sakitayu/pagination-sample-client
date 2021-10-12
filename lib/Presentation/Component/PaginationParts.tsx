@@ -77,14 +77,14 @@ export const PaginationParts: React.FC<Props> = props => {
             <Pagination.First
                 onClick={() => Router.push(props.targetPagePath + 1)}
                 className='mx-1'
-                disabled={props.currentPage == 1}
+                disabled={props.currentPage === 1}
             />
             <Pagination.Prev
                 onClick={() =>
                     Router.push(props.targetPagePath + (props.currentPage - 1))
                 }
                 className='mx-1'
-                disabled={props.currentPage == 1}
+                disabled={props.currentPage === 1}
             />
             {paginationItems}
             <Pagination.Next
@@ -92,14 +92,14 @@ export const PaginationParts: React.FC<Props> = props => {
                     Router.push(props.targetPagePath + (props.currentPage + 1))
                 }
                 className='mx-1'
-                disabled={props.currentPage == props.totalPages}
+                disabled={props.currentPage === props.totalPages}
             />
             <Pagination.Last
                 onClick={() =>
                     Router.push(props.targetPagePath + props.totalPages)
                 }
                 className='mx-1'
-                disabled={props.currentPage == props.totalPages}
+                disabled={props.currentPage === props.totalPages}
             />
         </Pagination>
     );
