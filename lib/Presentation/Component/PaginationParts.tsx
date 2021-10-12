@@ -71,7 +71,7 @@ export const PaginationParts: React.FC<Props> = props => {
             );
         }
     });
-    // TODO: disableを設定
+
     return (
         <Pagination className='align-items-center'>
             <Pagination.First
@@ -80,6 +80,7 @@ export const PaginationParts: React.FC<Props> = props => {
                     Router.push(props.targetPagePath + 1)
                 }
                 className='mx-1'
+                disabled={props.currentPage == 1}
             />
             <Pagination.Prev
                 onClick={() =>
@@ -87,6 +88,7 @@ export const PaginationParts: React.FC<Props> = props => {
                     Router.push(props.targetPagePath + (props.currentPage - 1))
                 }
                 className='mx-1'
+                disabled={props.currentPage == 1}
             />
             {paginationItems}
             <Pagination.Next
@@ -95,6 +97,7 @@ export const PaginationParts: React.FC<Props> = props => {
                     Router.push(props.targetPagePath + (props.currentPage + 1))
                 }
                 className='mx-1'
+                disabled={props.currentPage == props.totalPages}
             />
             <Pagination.Last
                 onClick={() =>
@@ -102,6 +105,7 @@ export const PaginationParts: React.FC<Props> = props => {
                     Router.push(props.targetPagePath + props.totalPages)
                 }
                 className='mx-1'
+                disabled={props.currentPage == props.totalPages}
             />
         </Pagination>
     );
