@@ -23,7 +23,7 @@ const UsersIndex: NextPage<Props> = ({ currentPage }) => {
     const trs = users.map(user => {
         return (
             <tr key={user.id}>
-                <td>{user.id}</td>
+                <td style={{ width: '5%' }}>{user.id}</td>
                 <td>{user.name}</td>
             </tr>
         );

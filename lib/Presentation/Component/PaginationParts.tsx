@@ -71,7 +71,7 @@ export const PaginationParts: React.FC<Props> = props => {
             );
         }
     });
-
+    // TODO: disableを設定
     return (
         <Pagination className='align-items-center'>
             <Pagination.First
