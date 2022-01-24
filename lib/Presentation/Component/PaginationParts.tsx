@@ -13,13 +13,16 @@ const totalPageIndications = 5;
 const middlePagePosition = Math.floor(totalPageIndications / 2) + 1;
 
 export const PaginationParts: React.FC<Props> = props => {
-    const paginationItems = [...Array(totalPageIndications)].map((e, key) => {
+    const totalItems =
+        totalPageIndications < props.totalPages
+            ? [...Array(totalPageIndications)]
+            : [...Array(props.totalPages)];
+    const paginationItems = totalItems.map((e, key) => {
         const pageNumber = key + 1;
         const pageNumberAroundMiddlePage =
             pageNumber + props.currentPage - middlePagePosition;
         const pageNumberUpToLastPage =
             pageNumber + props.totalPages - totalPageIndications;
-        if (pageNumber > props.totalPages) return null;
         if (
             props.currentPage <= middlePagePosition ||
             props.totalPages <= totalPageIndications
